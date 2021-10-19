@@ -66,3 +66,13 @@ function narcissistic(value) {
 console.log(narcissistic(371))
 console.log(narcissistic(7))
 
+// **refactor version**
+
+function narcissistic( value ) {
+    return ('' + value).split('').reduce(function(p, c){
+      return p + Math.pow(c, ('' + value).length)
+      }, 0) == value;
+  }
+
+console.log(narcissistic(371))
+console.log(narcissistic(7))
