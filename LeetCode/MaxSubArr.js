@@ -26,13 +26,15 @@ Output: 23
  * @param {number[]} nums
  * @return {number}
  */
+//brute focrce version O(n^2)
  var maxSubArray = function(nums) {
     let maxSum = -Infinity
    
     for(let i = 0 ; i < nums.length; i++){
        let currentSum = 0;
-      for(let j = i+1; j < nums.length; j++){
-          currentSum +=nums[j]
+      for(let j = i; j < nums.length; j++){
+          currentSum += nums[j]
+          console.log(currentSum)
           maxSum = Math.max(maxSum, currentSum)
           
       }
@@ -40,4 +42,26 @@ Output: 23
     
     return maxSum;
 };
+//console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+//console.log(maxSubArray([1]))
+console.log(maxSubArray([5,4,-1,7,8]))
 
+//dynamic programming
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+ var maxSubArray = function(nums) {
+    let maxSum = - Infinity;
+    let currentSum = 0;
+ 
+    for(let i = 0 ; i < nums.length; i++){
+        let num = nums[i];
+        currentSum = Math.max(num, currentSum + num)
+        maxSum = Math.max(maxSum, currentSum)
+      }
+    
+     return maxSum
+    
+    }
+ 
