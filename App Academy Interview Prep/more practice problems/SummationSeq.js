@@ -7,9 +7,24 @@ next element of the sequence we take the summation of the previous element.
 You can assume that length is not zero. */
 
 function summationSequence(start, length) {
-   
- 
+    let newArr = [start];
+     for(let i = 1 ; i < length; i ++){
+         start = fib(start)
+         newArr.push(start)
+        
+     }
+   return newArr
  }
+ 
+ 
+ function fib(n){
+    let sum = 0;
+    for(let i = 1 ; i <= n ; i ++){
+      sum += i
+    }
+   return sum;
+ }
+ 
  
  console.log(summationSequence(3, 4)); // [3, 6, 21, 231]
  console.log(summationSequence(5, 3)); // [5, 15, 120]
