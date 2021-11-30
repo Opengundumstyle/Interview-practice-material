@@ -1,8 +1,8 @@
 class HashTable{
-   constructor(size=53){
+   constructor(size = 53){
        this.keyMap = new Array(size);
    }
-_has(key){
+_hash(key){
     let total = 0;
     let WEIRD_PRIME = 31;
     for(let i = 0; i < Math.min(key.length,100);i ++){
@@ -12,4 +12,25 @@ _has(key){
     }
     return total;
  }
+ set(key,value){
+    let index = this._hash(key);
+    if(!this.keyMap[index]){
+        this.keyMap[index] = [];
+    }
+    this.keyMap[index].push([key,value]);
+ }
+
+ get(key){  
+   let index = this._hash(key);
+   if(this.keyMap[index]){
+       for(let i = 0; i < this.keyMap[index].length; i++){
+           if(this.keyMap[index][i][0] === key ){
+               return this.keyMap[index][i][1]
+           }
+       }
+   }
+ }
 }
+
+let ht = new HashTable();
+
