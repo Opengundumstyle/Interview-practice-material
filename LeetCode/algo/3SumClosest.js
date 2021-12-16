@@ -27,10 +27,10 @@ Output: 0
  var threeSumClosest = function(nums, target) {
     nums.sort((a,b)=>a-b);
     let ans = nums[0] + nums[1] + nums[2];
-    for(let i = 0;i < nums.length - 2;i+=1 ){
+    for(let i = 0;i < nums.length - 2; i+=1 ){
          let start = i +1, end = nums.length -1;
          while(start < end){
-             const sum = nums[i] + nums[i] + nums[i];
+             const sum = nums[i] + nums[end] + nums[start];
              if(sum > target){
                  end  -= 1;
              }else{
