@@ -37,17 +37,17 @@ Constraints:
  */
  var maxProfit = function(prices) {//[7,1,5,3,6,4]
      let minprice = Infinity;
-     let maxprice = 0;
+     let maxprofit = 0;
      for(let i =0 ;i < prices.length ;i ++){
          if(minprice > prices[i]){
              minprice = prices[i]
-             if(maxprice < prices[i] - minprice){
-                 maxprice = prices[i] - minprice
-             }
-         }
+             
+         }else if(maxprofit < prices[i] - minprice){
+            maxprofit = prices[i] - minprice
+        }
          
      }
-     return maxprice
+     return maxprofit
 
 
    
