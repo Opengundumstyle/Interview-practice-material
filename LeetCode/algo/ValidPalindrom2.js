@@ -41,3 +41,47 @@ Output: false
       return check(0, s.length - 1, 1)
     
  };
+
+
+ 
+ //********************************* method 2
+
+ /**
+ * @param {string} s
+ * @return {boolean}
+ */
+var validPalindrome = function(s) {
+    let i = 0 ; 
+    let j = s.length -1;
+    while(i < j){
+        if(s[i] !== s[j]){
+            let canFix1 = checkValid(i+1,j,s)
+            let canFix2 = checkValid(i,j-1,s)
+            if(canFix1 || canFix2){
+                return true 
+            }
+            return false
+            
+        }
+            i++;
+            j--;
+    }
+    return true;
+ };
+
+
+function checkValid(i,j,str){
+    if(str[i]=== str[j]){
+    while(i < j){
+        
+          if(str[i]!== str[j]) return false;
+        
+          i++;
+          j--;
+        }
+        return true;
+    }
+    
+      return false;
+    
+}
